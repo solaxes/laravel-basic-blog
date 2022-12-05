@@ -18,7 +18,7 @@ use App\Http\Controllers\Demo\DemoController;
 Route::get('/', [DemoController::class, 'index']);
 
 Route::controller(DemoController::class)->group(function(){
-    Route::get('/about', 'about')->name('about.page');
+    Route::get('/about', 'about')->name('about.page')->middleware('check');
 
     Route::get('/contact', 'contact')->name('contact.page');
 
