@@ -22,13 +22,10 @@
                                 <small class="text-muted">Last updated {{$user->created_at->diffForHumans()}}</small>
                             </p>
                             <hr/>
-                            <a href="" class="btn btn-primary btn-rounded">Edit Profile</a>
+                            <a href="{{route('admin.edit.profile')}}" class="btn btn-primary btn-rounded">Edit Profile</a>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
