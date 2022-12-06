@@ -16,7 +16,7 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::get('/dashboard', function () {
@@ -35,6 +35,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('admin/profile', 'profile')->name('admin.profile');
     Route::get('admin/profile/edit', 'editProfile')->name('admin.edit.profile');
     Route::post('admin/store/profile', 'storeProfile' )->name('admin.store.profile');
+    Route::get('admin/change/password', 'changePassword' )->name('admin.change.password');
+    Route::post('admin/update/password', 'updatePassword')->name('update.password');
 
 });
 
