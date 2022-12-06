@@ -2,14 +2,17 @@
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
-
+        @php
+            $id = Auth::user()->id;
+            $adminData = \App\Models\User::find($id);
+        @endphp
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">
-                <img src="{{'/backend/'}}assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle">
+                <img src="{{!empty($adminData->profile_image) ? url('admin_images/' . $adminData->profile_image) : url('admin_images/no_image.png')}}" alt="" class="avatar-md rounded-circle">
             </div>
             <div class="mt-3">
-                <h4 class="font-size-16 mb-1">Julia Hudda</h4>
+                <h4 class="font-size-16 mb-1">{{Auth::user()->name}}</h4>
                 <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
             </div>
         </div>

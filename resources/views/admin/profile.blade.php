@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card">
-                        <img class="card-img-top img-fluid" src="{{'/backend'}}/assets/images/small/img-5.jpg" alt="Card image cap">
+                        <img class="card-img-top img-fluid" src="{{ !empty($user->profile_image) ? url('admin_images/' .  $user->profile_image) : url('admin_images/no_image.png')}}" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">{{$user->name}}</h4>
                             <hr/>

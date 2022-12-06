@@ -7,7 +7,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                        <form method="post" action="{{route('admin.edit.profile')}}">
+                        <form method="post" action="{{route('admin.store.profile')}}" enctype="multipart/form-data">
                             @csrf
                             <h4 class="card-title">Edit Profile Page</h4>
                             <div class="row mb-3">
@@ -32,16 +32,16 @@
                                 <label for="profile_image" class="col-sm-2 col-form-label">Profile Image</label>
                                 <div class="col-sm-10">
 
-                                    <input class="form-control" name="profile_image" type="file"  id="profile_image" >
+                                    <input class="form-control" name="profile_image" type="file"  id="profile_image">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img src="{{ asset('backend/assets/images/small/img-5.jpg') }}" class="rounded avatar-x1" alt="Card image cap" width="100" height="100" />
+                                    <img src="{{ !empty($user->profile_image) ? url('admin_images/' . $user->profile_image) : url('admin_images/no_image.png') }}" class="rounded avatar-x1" id="showImage" alt="Card image cap" width="100" height="100" />
                                 </div>
                             </div>
-                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Submit" />
+                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Profile" />
                         </form>
                             <!-- end row -->
 
@@ -52,4 +52,19 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('jsCodes')
+    <script type="text/javascript">
+        $(function(){
+           $('#profile_image').change(function(e){
+               var reader = new FileReader();
+              reader.onload = function(e){
+                  $('#showImage').attr('src', e.target.result);
+              }
+
+              reader.readAsDataURL(e.target.files['0']);
+           });
+        });
+    </script>
 @endsection

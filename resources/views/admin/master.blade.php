@@ -66,8 +66,10 @@
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
+
+
 <!-- JAVASCRIPT -->
-<script src="{{'/backend/assets/libs/jquery/jquery.min.js'}}"></script>
+<script type="text/javascript" src="{{'/backend/assets/libs/jquery/jquery.min.js'}}"></script>
 <script src="{{'/backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js'}}"></script>
 <script src="{{'/backend/assets/libs/metismenu/metisMenu.min.js'}}"></script>
 <script src="{{'/backend/'}}assets/libs/simplebar/simplebar.min.js"></script>
@@ -93,6 +95,8 @@
 
 <!-- App js -->
 <script src="{{'/backend/'}}assets/js/app.js"></script>
+
+@yield('jsCodes')
 </body>
 
 </html>
